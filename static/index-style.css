@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet');
+*{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    background: url("{% static 'hero_image_new.jpg' %}") no-repeat;
+    background-size: cover;
+    height: 100Vh;
+}
+
+.wrapper .center{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    user-select: none;
+}
+.center h1{
+    color: purple;
+    font-size: 70px;
+    font-weight: bold;
+    width: 900px;
+    text-align: center;
+}
+.center h2{
+    color: purple;
+    font-size: 70px;
+    font-weight: bold;
+    width: 855px;
+    margin-top: 10px;
+    text-align: center;
+}
+.center .form{
+    margin: 500px 500px;
+}
+
+
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+

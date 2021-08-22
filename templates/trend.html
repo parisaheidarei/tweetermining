@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendMentions</title>
+  <link rel="stylesheet"  href="{% static 'trend-style.css' %}">  
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #646f6e;
+}
+</style>
+<style>
+.alert {
+  padding: 20px;
+  background-color: #5cacf1;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+<style>
+  .button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .button3 {background-color: #4caf95;} /* Green */
+</style>
+
+</head>
+<body>
+<ul>
+  <li><a href="#Product">Product</a></li>
+  <li><a href="#Pricing">Pricing</a></li>
+  <li><a href="#Snapshots">Snapshots</a></li>
+  <li style="float:right"><a class="active" href="#Login">Login</a></li>
+  <li style="float:right"><a  href="#Sign up">Sign up</a></li>
+</ul>
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+   Successfully authenticated with Twitter.
+  <a href="">Save these credentials.</a>
+</div> 
+<br><br>
+<div class="wrapper" style="text-align: center;">
+    <div class="center">
+      <div>
+          <form action="">
+              
+              <input type="text" id="hashtag" name="hashtag:" placeholder="Try it again enter another hashtag...">
+             <input type="submit" value="search">
+             <button class="button button3"><a href="/chart/" title="صفحه چهارم">
+              ورود به صفحه چهارم
+              </a></button>
+              
+          </form>
+      </div>
+    </div>
+</div>
+
+<div class="container" style="text-align: center;">
+    <div class="description">
+      <p>Showing the 100 most recent Tweets for your search term<br>
+        Snapshot reports include quick analysis on up to 100 Tweets from the past few days</p>
+      <br><br>  
+      <p style="text-align: center;"><strong>Twitter Snapshot Report</strong><br>
+        Jul 27, 2021 2:30 PM - Jul 27, 2021 2:31 PM UTC</p>  
+    </div>
+    <div class="row" style="text-align: center;">
+      <button type="button" onclick="alert('save this report!')">Save</button>
+      <button type="button" onclick="alert('share this report!')">Share</button>
+      <button type="button" onclick="alert('print this report!')">Print</button>
+      <br><br>
+      <span class="snapshot-query">covid19</span>
+      <div class="snapshot-number">222,678</div>
+      <div class="snapshot-label">POTENTIAL REACH</div>
+    </div>    
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Table Filter search</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+}
+
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+    border-radius: 10px;
+}
+
+h1{
+    text-align: center;
+    margin: 50px 0;
+    font-size: 3rem;
+}
+
+.filter-input{
+    width: 100%;
+    margin-bottom: 2rem;
+    height: 45px;
+    padding: 0.5rem 2rem;
+   border: 1px solid #ccc;
+   border-radius: 10px;
+   outline: none;
+   font-size: 1rem;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td{
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #ccc;
+}
+
+.no-item{
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-left: 5px solid red;
+    background-color: pink;
+    color: red;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    text-align: center;
+}    
+</style>
+</head>
+<body>
+    
+    <h1> Filtering Table</h1>
+
+    <div class="container">
+        <input type="text" placeholder="Search ..." class="filter-input">
+        <div class="output"></div>
+    </div>
+<script>
+const table = [
+    {
+        id:'1',
+        name: '#NewProfilePic',
+        repeat:'492',
+        preRepeat:'1',
+        createDate:'July 14, 2021, 3:34 p.m.'
+    }, 
+    {
+        id: "12",
+        name: '#ملت_ایران',
+        repeat: "72",
+        preRepeat: "1",
+        createDate: "July 14, 2021, 3:34 p.m.",
+      },
+      {
+        id: "37",
+        name: '#رئیسی',
+        repeat: "141",
+        preRepeat: "1",
+        createDate: "July 14, 2021, 3:34 p.m.",
+      },
+      {
+        id: "43",
+        name: '#واکسن_ایرانی',
+        repeat: "71",
+        preRepeat: "1",
+        createDate: "July 14, 2021, 3:34 p.m.",
+      },
+      {
+        id: "45",
+        name: '#رای_میدهم',
+        repeat: "141",
+        preRepeat: "1",
+        createDate: "July 14, 2021, 3:34 p.m.",
+      },
+      {
+        id: "75",
+        name: '#قطعی_برق',
+        repeat: "177",
+        preRepeat: "1",
+        createDate: "July 14, 2021, 3:35 p.m.",
+      },
+      {
+        id: "76",
+        name: '#قطعی_اینترنت',
+        repeat: "60",
+        preRepeat: "1",
+        createDate: "July 14, 2021, 3:35 p.m.",
+      },
+      {
+        id: "143",
+        name: '#واکسیناسیون',
+        repeat: "119",
+        preRepeat: "1",
+        createDate: "July 14, 2021, 3:35 p.m.",
+      }
+]
+
+const tableHeader = Object.keys(table[0]);
+const search = document.querySelector('.filter-input');
+const output = document.querySelector('.output');
+
+window.addEventListener('DOMContentLoaded', loadTable);
+search.addEventListener('input', filter);
+
+
+function loadTable(){
+    let temp = `<table> <tr>`;
+    tableHeader.forEach( header=> temp+= `<th> ${header.toUpperCase()} </th>`);
+    temp+=`<tr>`
+    table.forEach(row => {
+        temp +=`
+        <tr>
+          <td>${row.id}</td>
+          <td>${row.name}</td>
+          <td>${row.repeat}</td>
+          <td>${row.preRepeat}</td>
+          <td>${row.createDate}</td>
+        </tr>
+        `
+    });
+
+    temp+=`</table>`
+    output.innerHTML = temp;
+}
+
+
+function filter(e){
+let results;
+let temp ="";
+
+results = table.filter( item=> 
+    item.createDate.toLowerCase().includes(e.target.value.toLowerCase()) || 
+    item.id.toLowerCase().includes(e.target.value.toLowerCase()) ||
+    item.preRepeat.toLowerCase().includes(e.target.value.toLowerCase()) ||
+    item.repeat.toLowerCase().includes(e.target.value.toLowerCase()) ||
+    item.name.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+   console.log(results)
+    if(results.length>0){
+        temp = `<table> <tr>`;
+        tableHeader.forEach( header=> temp+= `<th> ${header.toUpperCase()} </th>`);
+        temp+=`<tr>`
+        results.forEach(row => {
+            temp +=`
+            <tr>
+              <td>${row.id}</td>
+              <td>${row.name}</td>
+              <td>${row.repeat}</td>
+              <td>${row.preRepeat}</td>
+              <td>${row.createDate}</td>
+            </tr>
+            `
+        });
+        temp+=`</table>`  
+    }else{
+        temp =`<div class="no-item">Item Not Found </div>`
+    }
+
+    output.innerHTML=temp;
+}
+</script>
+</body>
+</html>

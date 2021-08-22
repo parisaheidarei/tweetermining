@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potential Impressions Details </title>
+    <link rel="stylesheet"  href=""> 
+<style>
+    
+
+search{
+  background: url("{% static 'searchicon.png' %}");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+th, td {
+  text-align: left;
+  padding: 12px;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tr, tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+</style>
+</head>
+<body>
+<h2>All Contributors</h2>
+<p>statistic based on Users:</p>
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+				<button class="btn btn-primary" type="submit">Search</button>
+                {{myFilter.form}}
+		    
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>repeat</th>
+					<th>preRepeat</th>
+					<th>createDate</th>
+				</tr>
+        {% for h in HashtagTrend %}
+        <tr>
+          <td>{{ h.id }}</td>
+          <td>{{ h.name }}</td>
+          <td>{{ h.repeat }}</td>
+          <td>{{ h.preRepeat }}</td>
+          <td>{{ h.createDate }}</td>  
+        </tr>
+        {% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

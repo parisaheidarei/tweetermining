@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendMentions</title>
+  <link rel="stylesheet"  href="{% static 'home-style.css' %}">  
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #646f6e;
+}
+</style>  
+<style>
+  body {
+  background: url("{% static 'photo-1445112098124-3e76dd67983c.jpg' %}");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+</style>
+<style>
+.alert {
+  padding: 20px;
+  background-color: #3ef3d8;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>   
+</head>
+<body>
+  <ul>
+    <li><a href="#Product">Product</a></li>
+    <li><a href="#Pricing">Pricing</a></li>
+    <li><a href="#Snapshots">Snapshots</a></li>
+    <li style="float:right"><a  href="#Login">Login</a></li>
+    <li style="float:right"><a class="active" href="#Sign up">Sign up</a></li>
+  </ul>
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  New! Measure actual Twitter reach, impressions and engagement. Only with TrendMentions Metrics.
+  <a href="">LEARN MORE »</a>
+</div>   
+<div class="wrapper" style="text-align: center;">
+  <div class="center">
+    <p>Free Twitter Analytics Report from TrendMentions Metrics</p>
+    <button class="button button1"><a href="/index/" title="صفحه دوم">
+      ورود به صفحه دوم
+      </a></button>
+      <p>
+        {{ name }}
+        </p>
+</div>
+  </div>     
+</body>
+</html>

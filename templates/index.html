@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendMentions</title>
+    <link rel="stylesheet"  href="{% static 'index-style.css' %}">  
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #646f6e;
+}
+</style>  
+<style>
+  .button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .button2 {background-color: #4caf95;} /* Green */
+</style> 
+</head>
+<body>
+<ul>
+  <li><a href="#Product">Product</a></li>
+  <li><a href="#Pricing">Pricing</a></li>
+  <li><a href="#Snapshots">Snapshots</a></li>
+  <li style="float:right"><a class="active" href="#Login">Login</a></li>
+  
+</ul>
+
+    <div class="wrapper" style="text-align: center;">
+        <div class="center">
+          <h1>Free Twitter snapshot report</h1>
+          <h2>Quick and easy free reports on recent Twitter activity</h2><br><br>
+          <div>
+              <form>
+                  
+                  <input type="text" id="hashtag" name="hashtag:" placeholder="enter hashtag...">
+                  
+                    <input type="submit" value="search">
+                    <button class="button button2"><a href="/trend/" title="صفحه سوم">
+                      ورود به صفحه سوم
+                      </a></button>
+                  <div class="search-box-warning-keyword" id="search-box-warning-keyword">Please enter a keyword or topic with <strong>at least 2 characters</strong></div>
+              </form>
+          </div>
+        </div>
+      </div>
+      {% for h in HashtagTrend %}
+        <p>{{ h.name }}</p>
+        <p>{{ h.repeat }}</p>
+      {% endfor %}       
+</body>
+</html>
